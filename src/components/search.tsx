@@ -65,7 +65,7 @@ const Search = () => {
     const params = new URLSearchParams(searchParams);
     data.url && params.set("url", data.url);
 
-    router.replace(`/?${params.toString()}`);
+    router.push(`/?${params.toString()}`);
   };
 
   return (

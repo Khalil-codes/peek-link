@@ -44,10 +44,14 @@ const Search = () => {
   const onSubmit: SubmitHandler<Schema> = async (data) => {
     if (data.url) {
       try {
-        await fetch(data.url, {
-          method: "HEAD",
-          mode: "no-cors",
-        });
+        const response = await fetch(
+          `/api/check?url=${encodeURIComponent(data.url)}`
+        );
+
+        if (!response.ok) {
+          const error = await response.json();
+          throw new Error(error.message);
+        }
       } catch (error) {
         toast({
           variant: "destructive",

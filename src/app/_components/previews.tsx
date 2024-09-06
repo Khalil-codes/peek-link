@@ -12,6 +12,7 @@ import { ResetIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { fetchMetadata } from "@/services/meta";
 import Facebook from "@/components/socials/facebook";
+import Error from "./error";
 
 type Props = {
   url: string;
@@ -25,6 +26,10 @@ const Preview = async (props: Props) => {
   }
 
   const meta = await fetchMetadata(url);
+
+  if (!meta) {
+    return <Error />;
+  }
 
   return (
     <>

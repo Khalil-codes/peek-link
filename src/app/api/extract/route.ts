@@ -47,11 +47,14 @@ export const GET = async (request: NextRequest) => {
     image: twitterImage,
   };
 
-  console.log({ twitter });
+  const meta = {
+    title,
+    description,
+    hostname,
+    favicon,
+    og,
+    twitter,
+  };
 
-  console.log({ og });
-
-  console.log({ title, description, favicon, hostname });
-
-  return Response.json({ message: "Hello World" });
+  return Response.json(meta);
 };

@@ -1,38 +1,21 @@
-import SocialCard from "@/components/socials/card";
-import Discord from "@/components/socials/discord";
-import Google from "@/components/socials/google";
-import Linkedin from "@/components/socials/linkedin";
-import Slack from "@/components/socials/slack";
-import Telegram from "@/components/socials/telegram";
-import Whatsapp from "@/components/socials/whatsapp";
-import X from "@/components/socials/X";
+import { Suspense } from "react";
+import Previews from "./_components/previews";
+import { PreviewsSkeleton } from "@/components/skeletons";
 
-export default async function Home() {
+type Props = {
+  searchParams: {
+    url: string;
+  };
+};
+
+export default async function Home({ searchParams }: Props) {
+  const { url } = searchParams;
+
   return (
     <section>
-      <div className="flex flex-col gap-4">
-        <SocialCard title="Google">
-          <Google />
-        </SocialCard>
-        <SocialCard title="Twitter/X">
-          <X />
-        </SocialCard>
-        <SocialCard title="WhatsApp">
-          <Whatsapp />
-        </SocialCard>
-        <SocialCard title="LinkedIn">
-          <Linkedin />
-        </SocialCard>
-        <SocialCard title="Telegram">
-          <Telegram />
-        </SocialCard>
-        <SocialCard title="Discord">
-          <Discord />
-        </SocialCard>
-        <SocialCard title="Slack">
-          <Slack />
-        </SocialCard>
-      </div>
+      <Suspense key={url} fallback={<PreviewsSkeleton />}>
+        <Previews url={url} />
+      </Suspense>
     </section>
   );
 }

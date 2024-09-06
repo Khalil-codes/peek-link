@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import Previews from "./_components/previews";
 import { PreviewsSkeleton } from "@/components/skeletons";
+import Search from "@/components/search";
 
 type Props = {
   searchParams: {
@@ -13,9 +14,7 @@ export default async function Home({ searchParams }: Props) {
 
   return (
     <section>
-      <Suspense key={url} fallback={<PreviewsSkeleton />}>
-        <Previews url={url} />
-      </Suspense>
+      <Search />
     </section>
   );
 }

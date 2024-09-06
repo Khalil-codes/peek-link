@@ -15,6 +15,11 @@ export default async function Home({ searchParams }: Props) {
   return (
     <section>
       <Search />
+      {url && (
+        <Suspense key={url} fallback={<PreviewsSkeleton />}>
+          <Previews url={url} />
+        </Suspense>
+      )}
     </section>
   );
 }

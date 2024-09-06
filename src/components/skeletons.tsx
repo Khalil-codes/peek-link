@@ -18,11 +18,21 @@ export const PreviewSkeleton = () => {
 
 export const PreviewsSkeleton = () => {
   return (
-    <div className="flex flex-col gap-4">
-      <PreviewSkeleton />
-      <PreviewSkeleton />
-      <PreviewSkeleton />
-      <PreviewSkeleton />
-    </div>
+    <>
+      <div className="mb-4 flex items-center justify-between gap-2">
+        <div
+          className={`${shimmer} relative h-8 w-36 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-900/50`}
+        />
+        <div
+          className={`${shimmer} relative h-8 w-10 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-900/50`}
+        />
+      </div>
+      <div className="flex flex-col gap-4">
+        <PreviewSkeleton />
+        <PreviewSkeleton />
+        <PreviewSkeleton />
+        <PreviewSkeleton />
+      </div>
+    </>
   );
 };

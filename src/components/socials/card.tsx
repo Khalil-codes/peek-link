@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import Image from "next/image";
 
 type Props = {
   children: React.ReactNode;
@@ -28,7 +29,13 @@ const SocialCard = ({ children, icon, title }: Props) => {
             {icon ? (
               icon
             ) : (
-              <img height={16} width={16} src={iconUrl} alt="Slack" />
+              <Image
+                height={16}
+                width={16}
+                src={iconUrl}
+                alt="Slack"
+                unoptimized
+              />
             )}
           </span>
           <span>{title}</span>

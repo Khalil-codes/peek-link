@@ -10,14 +10,22 @@ import X from "@/components/socials/X";
 import { Button } from "@/components/ui/button";
 import { ResetIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
+import { fetchMetadata } from "@/services/meta";
+import Facebook from "@/components/socials/facebook";
 
 type Props = {
   url: string;
 };
 
 const Preview = async (props: Props) => {
-  console.log(props.url);
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  const { url } = props;
+
+  if (!url) {
+    return null;
+  }
+
+  const meta = await fetchMetadata(url);
+
   return (
     <>
       <div className="mb-4 flex items-center justify-between gap-2">
@@ -31,25 +39,28 @@ const Preview = async (props: Props) => {
       </div>
       <div className="flex flex-col gap-4">
         <SocialCard title="Google">
-          <Google />
+          <Google meta={meta} />
         </SocialCard>
         <SocialCard title="Twitter/X">
-          <X />
+          <X meta={meta} />
         </SocialCard>
         <SocialCard title="WhatsApp">
-          <Whatsapp />
+          <Whatsapp meta={meta} />
+        </SocialCard>
+        <SocialCard title="Facebook">
+          <Facebook meta={meta} />
         </SocialCard>
         <SocialCard title="LinkedIn">
-          <Linkedin />
+          <Linkedin meta={meta} />
         </SocialCard>
         <SocialCard title="Telegram">
-          <Telegram />
+          <Telegram meta={meta} />
         </SocialCard>
         <SocialCard title="Discord">
-          <Discord />
+          <Discord meta={meta} />
         </SocialCard>
         <SocialCard title="Slack">
-          <Slack />
+          <Slack meta={meta} />
         </SocialCard>
       </div>
     </>

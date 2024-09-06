@@ -1,8 +1,13 @@
+import { Meta } from "@/types";
 import { Ellipsis, Globe, X } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
-const Linkedin = () => {
+type Props = {
+  meta: Meta;
+};
+
+const Linkedin = ({ meta }: Props) => {
   return (
     <div>
       <div className="rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-gray-800">
@@ -42,29 +47,22 @@ const Linkedin = () => {
           </div>
         </div>
         <div className="mt-2">
-          <p className="text-sm">
-            {" "}
-            A CEO that I worked for seduced my wife in direct retaliation for my
-            pushback on him at work. He won. I got divorced and left the
-            company. When I say I truly understand how some executive teams can
-            be political snake pits, I trust you will believe me. Learn from my
-            pain - do the following:{" "}
-          </p>
+          <p className="text-sm">Found this cool and beatiful website.</p>
         </div>
         <div className="mt-4 flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2 dark:border-white/10">
           <Image
             alt="Khalil Patiwala"
             width={128}
             height={70}
-            src="https://cdn.sanity.io/images/sqj7d0s5/production/c328cf249bf6cb71cc278be02cf01a4f5bff05cf-1200x630.jpg"
+            src={meta.og.image || meta.favicon}
             className="rounded-lg object-contain"
           />
           <div>
             <p className="text-sm font-semibold">
-              Khalil Patiwala | Full Stack Developer
+              {meta.og.title || meta.title}
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-400">
-              khxlil.vercel.app
+              {meta.hostname}
             </p>
           </div>
         </div>

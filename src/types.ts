@@ -1,4 +1,5 @@
 export interface Meta {
+  url: string;
   title: string;
   description: string;
   hostname: string;

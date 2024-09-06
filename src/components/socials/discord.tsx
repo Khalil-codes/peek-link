@@ -9,9 +9,7 @@ type Props = {
 const Discord = ({ meta }: Props) => {
   return (
     <div>
-      <p className="text-sm text-[#006CE7] dark:text-[#05A8FC]">
-        https://{meta.hostname}
-      </p>
+      <p className="text-sm text-[#006CE7] dark:text-[#05A8FC]">{meta.url}</p>
       <div className="mt-px max-w-sm rounded-md border-l-4 border-gray-300 bg-gray-100 p-4 dark:border-white/10 dark:bg-gray-800">
         <p className="my-2 text-sm font-semibold text-[#006CE7] dark:text-[#05A8FC]">
           {meta.og.title || meta.title}

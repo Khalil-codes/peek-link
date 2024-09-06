@@ -49,6 +49,7 @@ export const GET = async (request: NextRequest) => {
     };
 
     const meta = {
+      url,
       title,
       description,
       hostname,

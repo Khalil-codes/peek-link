@@ -1,5 +1,5 @@
 import { Meta } from "@/types";
-import { Forward, MessageCircle, Send, ThumbsUp } from "lucide-react";
+import { Forward, Info, MessageCircle, Send, ThumbsUp } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -40,7 +40,7 @@ const Facebook = ({ meta }: Props) => {
               aria-hidden="true"></span>
           </div>
           <p className="mt-3 text-sm text-[#0064d1] dark:text-[#5AA7FF]">
-            https://{meta.hostname}
+            {meta.url}
           </p>
         </div>
         <div>
@@ -54,9 +54,7 @@ const Facebook = ({ meta }: Props) => {
         </div>
         <div className="relative bg-gray-200 px-4 py-2 dark:bg-gray-700">
           <span className="absolute -top-3 right-8 flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white dark:border-white/10 dark:bg-gray-800">
-            <span
-              className="iconify i-bi:info h-6 w-6"
-              aria-hidden="true"></span>
+            <Info size={20} />
           </span>
           <p className="text-sm uppercase text-[#65676B] dark:text-[#B0B3B8]">
             {meta.hostname}

@@ -9,9 +9,7 @@ type Props = {
 const Slack = ({ meta }: Props) => {
   return (
     <div>
-      <p className="text-sm text-[#006CE7] dark:text-[#05A8FC]">
-        https://{meta.hostname}
-      </p>
+      <p className="text-sm text-[#006CE7] dark:text-[#05A8FC]">{meta.url}</p>
       <div className="mt-2 max-w-sm border-l-4 border-gray-300 px-3 dark:border-white/10">
         <p className="mb-px text-sm font-semibold text-[#006CE7] dark:text-[#05A8FC]">
           {meta.og.title || meta.title}

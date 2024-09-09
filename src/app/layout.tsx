@@ -34,7 +34,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col gap-4 bg-gray-50 px-4 dark:bg-gray-950 dark:text-gray-100`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
-          <main className="container mx-auto h-[200rem] max-w-2xl flex-1 py-4">
+          <main className="container mx-auto flex max-w-2xl flex-1 flex-col py-4">
             {children}
           </main>
           <Footer />
